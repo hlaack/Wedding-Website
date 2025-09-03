@@ -53,9 +53,10 @@ table {
 
 	--cornsilk: #FFF9D6;
 	--lemon: #FCF5C7;
+	--darker_yellow: #F9EA8B;
 
-	--text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
-
+	--text-shadow: 4px 3px 0 var(--darker_yellow);
+	
 }
 
 h1, h2, h3, p, ul, a {
@@ -97,6 +98,16 @@ img {
 
 .banner h1 {
 	margin: auto 0;
+	padding: 4px;
+	text-shadow: var(--text-shadow);
+}
+
+.banner h1:hover {
+	text-decoration: underline;
+}
+
+.banner img:hover {
+	scale: 120%;
 }
 
 .thumbnail {
@@ -153,7 +164,7 @@ img {
 
 body h2 {
 	text-align: center;
-	text-decoration: underline;
 	font-style: italic;
-	font-weight: bold;
+	font-weight: 400;
+	text-shadow: var(--text-shadow);
 }
