@@ -77,6 +77,10 @@ body {
 	100%{background-position: 10% 0%;}
 }
 
+.content {
+	background-color: var(--cream);
+}
+
 h1, h2, h3, p, ul, a {
 	font-family: var(--fonts);
 	line-height: 1.5;
@@ -146,7 +150,7 @@ img {
 	background-position: center center;
 	filter: sepia(0.2);
 	min-width: auto;
-	min-height: 281px;
+	min-height: 275px;
 	text-align: center;
 	
 	display: flex;
@@ -251,7 +255,8 @@ body h2 .icon {
 }
 
 .bottom_links {
-	margin-top: 8px;
+	margin-top: auto;
+	margin-bottom: auto;
 	display: grid;
 	background-color: #F9EA8B;
 	text-align: center;
@@ -412,8 +417,9 @@ body h2 .icon {
 	gap: 8px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	background-color: var(--flax);
+	background-color: var(--cream);
 	border-radius: 8px;
+	border: 8px solid var(--darker_yellow);
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
 	animation: scroll_animation both;
@@ -497,3 +503,112 @@ body h2 .icon {
 
 }
 
+/* RSVP PAGE CSS */
+
+.rsvp_text h1 {
+	text-align: center;
+	font-style: italic;
+	text-shadow: var(--text-shadow);
+	padding-bottom: 0px
+}
+
+.rsvp_text p {
+	text-align: center;
+}
+
+.required {
+	color: red;
+}
+
+form {
+	padding: 24px;
+	display: grid;
+	grid-template-columns: 1fr;
+	font-family: var(--fonts);
+	justify-self: center;
+	justify-items: center;
+	background-color: var(--darker_yellow);
+	border-radius: 8px;
+	max-width: 80vw;
+}
+
+label {
+	margin-right: auto;
+	font-size: clamp(1rem, 2.5vw, 1.3rem);
+}
+
+input {
+	margin-left: 12px;
+	margin-right: auto;
+	width: 40%;
+	padding: 8px;
+	border: 2px solid var(--black_olive);
+	border-radius: 4px; 
+	background-color: var(--lemon);
+	transition: width 0.4s ease-in-out;
+}
+
+input:hover {
+	box-shadow: var(--box-shadow);
+}
+
+input:focus {
+	box-shadow: var(--box-shadow);
+	border-color: var(--black_olive);
+	width: 50%;
+}
+
+.rsvp_content {
+	background-color: var(--cream);
+	padding-bottom: 8px;
+}
+
+.rsvp_clarification {
+	max-width: 80ch;
+	margin: auto;
+	font-style: italic;
+	text-align: center;
+}
+
+@media (width > 1024px) {
+	.rsvp_content {
+		max-width: 50vw;
+		margin: auto;
+	}
+	
+	.rsvp_bottom_links {
+		margin: auto;
+		max-width: 50vw;
+	}
+
+	form {
+		max-width: 50vw;
+	}
+}
+
+@media (height > 1080px) {
+	.rsvp_content {
+		max-width: 60vw;
+		margin: auto;
+		display: flex;
+		justify-content: center;
+	}
+
+	.rsvp_content h1 {
+		font-size: clamp(1rem, 3.5vw, 3rem);
+	}
+
+	.rsvp_content p {
+		font-size: clamp(1rem, 2.5vw, 2rem);
+	}
+
+	label {
+		font-size: clamp(1rem, 2.5vw, 2rem);
+	}
+
+	input {
+		padding: clamp(8px, 2.5vw, 16px);
+		font-size: clamp(1rem, 2.5vw, 1.5rem);
+	}
+	
+}
