@@ -520,32 +520,35 @@ body h2 .icon {
 	color: red;
 }
 
-form {
+.rsvp_form {
 	padding: 24px;
 	display: grid;
 	grid-template-columns: 1fr;
 	font-family: var(--fonts);
-	justify-self: center;
-	justify-items: center;
 	background-color: var(--darker_yellow);
 	border-radius: 8px;
 	max-width: 80vw;
+	margin: auto;
 }
 
 label {
 	margin-right: auto;
 	font-size: clamp(1rem, 2.5vw, 1.3rem);
+	padding: 4px;
 }
 
 input {
-	margin-left: 12px;
+	margin-left: 8px;
 	margin-right: auto;
+	margin-top: 4px;
+	margin-bottom: 4px;
 	width: 40%;
 	padding: 8px;
 	border: 2px solid var(--black_olive);
 	border-radius: 4px; 
 	background-color: var(--lemon);
 	transition: width 0.4s ease-in-out;
+	font-family: var(--fonts);
 }
 
 input:hover {
@@ -556,6 +559,24 @@ input:focus {
 	box-shadow: var(--box-shadow);
 	border-color: var(--black_olive);
 	width: 50%;
+}
+
+#submit {
+	background-color: var(--lemon);
+	width: 30%;
+	height: 48px;
+	font-size: clamp(1rem, 2.5vw, 1.3rem);
+	font-family: var(--fonts);
+	border: 2px solid var(--black_olive);
+	border-radius: 4px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 16px;
+}
+
+#submit:hover {
+	box-shadow: var(--box-shadow);
+	scale: 105%;
 }
 
 .rsvp_content {
@@ -581,9 +602,23 @@ input:focus {
 		max-width: 50vw;
 	}
 
-	form {
-		max-width: 50vw;
+	.rsvp_form {
+		display: flex;
+		flex-direction: column;
+		text-align: left;
+		margin-left: 5vw;
+		margin-right: 5vw;
+		justify-content: center;
 	}
+
+	.rsvp_form input {
+		width: 35%;
+	}
+
+	.rsvp_form input:focus {
+		width: 40%;
+	}
+
 }
 
 @media (height > 1080px) {
@@ -611,4 +646,59 @@ input:focus {
 		font-size: clamp(1rem, 2.5vw, 1.5rem);
 	}
 	
+}
+
+/* PASSWORD PAGE CSS */
+
+.password_prompt_text {
+	display: flex;
+	max-width: 30ch;
+	margin: auto;
+	font-style: italic;
+	text-shadow: var(--text-shadow);
+	padding-bottom: 24px
+}
+
+.password_form {
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-family: var(--fonts);
+	background-color: var(--darker_yellow);
+	border-radius: 8px;
+	max-width: 80vw;
+	margin: auto;
+}
+
+.password_form label {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 8px;
+}
+
+.password_form input {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.password_bottom_links {
+	margin-top: 15vh;
+}
+
+@media (width > 1024px) {
+
+	.password_form {
+		margin-left: 5vw;
+		margin-right: 5vw;
+	}
+
+}
+
+@media (height >= 1080px) and (width <= 1024px) {
+
+	.password_bottom_links {
+		margin-top: 25vh;
+	}
+
 }
