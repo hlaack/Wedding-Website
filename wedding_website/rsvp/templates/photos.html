@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry & Abby - Wedding Website</title>
+        <!-- TODO: ADD FAVICON -->
+    <!-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <div class="banner">
+
+        <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span><span class="ring_icon">💍</span></h1>
+
+        <div class="banner_nav">
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="people.html">people</a></li>
+                    <li><a href="#">registry</a></li>
+                    <li><a href="#">place</a></li>
+                    <li><a href="#">travel</a></li>
+                    <li><a href="rsvp.html">rsvp!</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        {% load static %}
+        <img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48">
+
+    </div>
+
+    <div class="photos_grid_container">
+        {% load static %}
+        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
+        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
+        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
+        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
+        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
+        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
+        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
+        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
+
+    </div>
+
+    <div class="bottom_links">
+
+        <p>click below for more!</p>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="people.html">people</a></li>
+                <li><a href="#">registry</a></li>
+                <li><a href="#">place</a></li>
+                <li><a href="#">travel</a></li>
+                <li><a href="rsvp.html">rsvp!</a></li>
+            </ul>
+        </nav>
+
+        <h3>&copy; 2025, Harry Laack & Abby Langseth</h3>
+
+    </div>
+
+</body>
+
+</html>
