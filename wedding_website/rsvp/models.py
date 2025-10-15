@@ -6,6 +6,13 @@ from django.urls import reverse # Used in get_absolute_url() to get URL for spec
 from django.db.models import UniqueConstraint # Constrains fields to unique values
 from django.db.models.functions import Lower # Returns lower cased value of field
 
+class RSVP_Protector(models.Model):
+    password = models.CharField(
+        max_length=15,
+        help_text="Set an RSVP Password.",
+        unique=True,
+    )
+
 class Family(models.Model):
     #Model representing a family unit.
 

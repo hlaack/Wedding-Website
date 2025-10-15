@@ -25,6 +25,6 @@ from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('rsvp/', include('rsvp.urls')),
-    path('', RedirectView.as_view(url='rsvp/')),
+    path('wedding/', include('rsvp.urls')),
+    path('', RedirectView.as_view(url='wedding/')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

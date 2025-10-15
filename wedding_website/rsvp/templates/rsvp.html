@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry & Abby - Wedding Website</title>
+        <!-- TODO: ADD FAVICON -->
+    <!-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <div class="banner">
+
+        <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span><span class="ring_icon">💍</span></h1>
+
+        <div class="banner_nav">
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="people.html">people</a></li>
+                    <li><a href="#">registry</a></li>
+                    <li><a href="#">place</a></li>
+                    <li><a href="#">travel</a></li>
+                    <li><a href="photos.html">photos</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        {% load static %}
+        <img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48">
+
+    </div>
+
+    <div class="rsvp_content">
+
+    <section class="content">
+
+    <div class="thumbnail"></div>
+
+    <section class="rsvp_text">
+
+        <h1>We're excited to celebrate with you!</h1>
+
+        <p>To rsvp, please fill out the forms below. Any field marked with <span class="required">*</span> must be completed.</p>
+
+    </section>
+
+    <form class="rsvp_form" action="/server/handle_form.js" method="post">
+
+        <label for="first_name">Please enter your first name: <span class="required">*</span></label><br>
+        <input type="text" id="first_name" name="first_name" placeholder="First Name"><br>
+        <label for="last_name">Please enter your last name: <span class="required">*</span></label><br>
+        <input type="text" id="last_name" name="last_name" placeholder="Last Name"><br>
+        <label for="email">Please enter your primary email address: <span class="required">*</span></label><br>
+        <input type="email" id="email" name="email" placeholder="email@email.com"><br>
+        <label for="phone_number">For any possible direct contact, please enter your phone number: <span class="required">*</span></label><br>
+        <input type="tel" id="phone_number" name="phone_number" placeholder="(402) 111-1111"><br>
+        <button type="submit" id="submit" name="submit">Submit!</button>
+
+    </form>
+
+    <div class="rsvp_clarification">
+        <p>The information provided to us in the following form is for planning use only, and will not be provided beyond use for Harry and Abby. Your information is securely stored within a private server and database and cannot be seen or accessed by any outside user.</p>
+    </div>
+
+    </div>
+
+    <div class="bottom_links rsvp_bottom_links">
+
+        <p>click below for more!</p>
+
+        <nav>
+            <ul>
+                <li><a href="#">people</a></li>
+                <li><a href="#">registry</a></li>
+                <li><a href="#">place</a></li>
+                <li><a href="#">travel</a></li>
+                <li><a href="#">rsvp!</a></li>
+                <li><a href="photos.html">photos</a></li>
+            </ul>
+        </nav>
+
+        <h3>&copy; 2025, Harry Laack & Abby Langseth</h3>
+
+    </div>
+
+    </section>
+
+</body>
+
+</html>

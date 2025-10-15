@@ -702,3 +702,7 @@ input:focus {
 	}
 
 }
+
+.form-errors {
+	text-align: center;
+}
