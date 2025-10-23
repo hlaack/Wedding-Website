@@ -6,6 +6,8 @@ from django.urls import reverse # Used in get_absolute_url() to get URL for spec
 from django.db.models import UniqueConstraint # Constrains fields to unique values
 from django.db.models.functions import Lower # Returns lower cased value of field
 
+from phonenumber_field.modelfields import PhoneNumberField
+
 class RSVP_Protector(models.Model):
     password = models.CharField(
         max_length=15,
@@ -25,6 +27,18 @@ class Family(models.Model):
     family_name = models.CharField(
         max_length=20,
         help_text="Enter the family last name."
+    )
+
+    phone_number = PhoneNumberField(
+        max_length=10,
+        null=True,
+        blank=True
+    )
+
+    email = models.EmailField(
+        max_length=50,
+        null=True,
+        blank=True
     )
 
     def __str__(self):
@@ -56,7 +70,8 @@ class Person(models.Model):
         Family,
         help_text="Enter the family last name associated with this person.",
         on_delete=models.RESTRICT,
-        null=True
+        null=True,
+        related_name='people',
     )
 
     RSVP_STATUS = (

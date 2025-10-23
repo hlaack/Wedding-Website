@@ -516,6 +516,11 @@ body h2 .icon {
 	text-align: center;
 }
 
+.rsvp_text .rsvp_entry_confirmation {
+	text-align: center;
+	margin: auto;
+}
+
 .required {
 	color: red;
 }
@@ -703,6 +708,82 @@ input:focus {
 
 }
 
-.form-errors {
+div.form-errors p{
 	text-align: center;
+	color: red;
+}
+
+.rsvp_entry_confirmation {
+	max-width: 50ch;
+}
+
+.rsvp_entry_confirmation_precheck {
+	max-width: 50ch;
+	font-style: italic;
+	margin: auto;
+}
+
+.rsvp_selection_region {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+	margin-top: 16px;
+}
+
+.rsvp_form .rsvp_selection_region p {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	padding: 0px;
+	margin: 0;
+	text-decoration: underline;
+}
+
+.rsvp_selection_region p label {
+	font-weight: bolder;
+	font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+}
+
+.rsvp_selection_region input.check {
+	accent-color: var(--black_olive);
+	width: 24px;
+	height: 24px;
+}
+
+div.rsvp_confirmation_photo img {
+	display: flex;
+	border-radius: 8px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 24px;
+	margin-bottom: 24px;
+	box-shadow: var(--box-shadow);
+	max-width: 40vw;
+}
+
+div.rsvp_mult_family_select_region {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+	margin-top: 16px;
+}
+
+div.rsvp_mult_family_select_region p {
+	margin: auto;
+	font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+	font-weight: bolder;
+}
+
+div.rsvp_mult_family_select_region input {
+	accent-color: var(--black_olive);
+	width: 24px;
+	height: 24px;
+}
+
+div.rsvp_mult_family_select_region input:focus {
+	width: 24px;
+	height: 24px;
 }

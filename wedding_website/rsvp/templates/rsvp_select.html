@@ -52,35 +52,22 @@
 
         <h1>We're excited to celebrate with you!</h1>
 
-        <p>To rsvp, please fill out the forms below. Any field marked with <span class="required">*</span> must be completed.</p>
+        <p class="rsvp_entry_confirmation">We've received your request. Here are the invited members of the {{ family.family_name }} family! Ensure you select all who are attending. Don't worry, you can come back later!</p>
+
+        <p class="rsvp_entry_confirmation_precheck">If a member is already checked, they have already RSVPd! You may uncheck them to remove them from the RSVP list.</p>
 
     </section>
 
     <form class="rsvp_form" method="post" action="">
-
+    
         {% csrf_token %}
-        <label for="first_name">Please enter your first name: <span class="required">*</span></label><br>
-        <input type="text" id="first_name" name="entered_first_name" placeholder="First Name" required><br>
-        <label for="last_name">Please enter your last name: <span class="required">*</span></label><br>
-        <input type="text" id="last_name" name="entered_last_name" placeholder="Last Name" required><br>
-        <label for="email">Please enter your primary email address: <span class="required" required>*</span></label><br>
-        <input type="email" id="email" name="entered_email" placeholder="email@email.com"><br>
-        <label for="phone_number">For any possible direct contact, please enter your phone number: <span class="required" required>*</span></label><br>
-        <input type="tel" id="phone_number" name="entered_phone_num" placeholder="(402) 111-1111"><br>
+        <input type="hidden" name="last_name" value="{{ family.name }}">
+        <div class="rsvp_selection_region">
+            {{ form.as_p }}
+        </div>
         <button type="submit" id="submit" name="submit">Submit!</button>
 
     </form>
-
-    {% if form.errors %}
-        <div class="form-errors">
-            {% for error in form.entered_last_name.errors %}
-                <p>{{ error }}</p>
-            {% endfor %}
-            {% for error in form.entered_first_name.errors %}
-                <p>{{ error }}</p>
-            {% endfor %}
-        </div>
-    {% endif %}
 
     <div class="rsvp_clarification">
         <p>The information provided to us in the following form is for planning use only, and will not be provided beyond use for Harry and Abby. Your information is securely stored within a private server and database and cannot be seen or accessed by any outside user.</p>

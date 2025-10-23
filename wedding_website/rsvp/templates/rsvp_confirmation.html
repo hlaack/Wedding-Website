@@ -50,40 +50,21 @@
 
     <section class="rsvp_text">
 
-        <h1>We're excited to celebrate with you!</h1>
+        <h1>We'll see you then and there!</h1>
 
-        <p>To rsvp, please fill out the forms below. Any field marked with <span class="required">*</span> must be completed.</p>
+        <p class="rsvp_entry_confirmation">This is confirmation that the selected members of your family have been successfully RSVPd for our wedding! Yay!</p>
+
+        <p class="rsvp_entry_confirmation_precheck">If at any time you wish to change someone's RSVP status, simply navigate back to the RSVP page and deselect those members!</p>
 
     </section>
 
-    <form class="rsvp_form" method="post" action="">
-
-        {% csrf_token %}
-        <label for="first_name">Please enter your first name: <span class="required">*</span></label><br>
-        <input type="text" id="first_name" name="entered_first_name" placeholder="First Name" required><br>
-        <label for="last_name">Please enter your last name: <span class="required">*</span></label><br>
-        <input type="text" id="last_name" name="entered_last_name" placeholder="Last Name" required><br>
-        <label for="email">Please enter your primary email address: <span class="required" required>*</span></label><br>
-        <input type="email" id="email" name="entered_email" placeholder="email@email.com"><br>
-        <label for="phone_number">For any possible direct contact, please enter your phone number: <span class="required" required>*</span></label><br>
-        <input type="tel" id="phone_number" name="entered_phone_num" placeholder="(402) 111-1111"><br>
-        <button type="submit" id="submit" name="submit">Submit!</button>
-
-    </form>
-
-    {% if form.errors %}
-        <div class="form-errors">
-            {% for error in form.entered_last_name.errors %}
-                <p>{{ error }}</p>
-            {% endfor %}
-            {% for error in form.entered_first_name.errors %}
-                <p>{{ error }}</p>
-            {% endfor %}
-        </div>
-    {% endif %}
+    <div class="rsvp_confirmation_photo">
+        {% load static %}
+        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
+    </div>
 
     <div class="rsvp_clarification">
-        <p>The information provided to us in the following form is for planning use only, and will not be provided beyond use for Harry and Abby. Your information is securely stored within a private server and database and cannot be seen or accessed by any outside user.</p>
+        <p>The information you have provided to us in the previous forms is stored safely in a private database and will only be able to be accessed by Harry and Abby. This is Harry promising to keep your stuff safe!</p>
     </div>
 
     </div>
@@ -100,6 +81,7 @@
                 <li><a href="#">place</a></li>
                 <li><a href="#">travel</a></li>
                 <li><a href="photos.html">photos</a></li>
+                <li><a href="password_entry.html">rsvp!</a></li>
             </ul>
         </nav>
 
