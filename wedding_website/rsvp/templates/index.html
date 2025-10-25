@@ -26,7 +26,7 @@
         <div class="banner_nav">
 
             <nav>
-                <ul>
+                <ul class="sidebar">
                     <li><a href="people.html">people</a></li>
                     <li><a href="#">registry</a></li>
                     <li><a href="#">place</a></li>
@@ -39,9 +39,12 @@
         </div>
 
         {% load static %}
-        <img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48">
+        <button class="openbtn" onclick="openNav()"><img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48"></button>
 
     </div>
+
+    {% load static %}
+    <script src="{% static 'script.js' %}"></script>
 
     <section class="content">
 
@@ -72,7 +75,7 @@
         {% load static %}
         <img src="{% static 'images/temp/wedding_temp.jpg' %}" alt="Film photo of wedding." width="131">
         <h3>ceremony!</h3>
-        <p>??:??am on 09/17/26<br>Hanke Hall,<br>Falconwood Park</p>
+        <p>??:??am on 09/18/26<br>Hanke Hall,<br>Falconwood Park</p>
 
     </div>
 

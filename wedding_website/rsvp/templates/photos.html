@@ -25,7 +25,7 @@
         <div class="banner_nav">
 
             <nav>
-                <ul>
+                <ul class="sidebar">
                     <li><a href="index.html">home</a></li>
                     <li><a href="people.html">people</a></li>
                     <li><a href="#">registry</a></li>
@@ -38,9 +38,12 @@
         </div>
 
         {% load static %}
-        <img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48">
+        <button class="openbtn" onclick="openNav()"><img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48"></button>
 
     </div>
+
+    {% load static %}
+    <script src="{% static 'script.js' %}"></script>
 
     <div class="photos_grid_container">
         {% load static %}

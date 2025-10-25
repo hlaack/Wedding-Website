@@ -91,7 +91,7 @@ class Person(models.Model):
         ordering = ['first_name', 'last_name']
 
     def __str__(self):
-        return f'{self.first_name}, {self.last_name}'
+        return f'{self.first_name} {self.last_name}'
     
     def get_absolute_url(self):
         return reverse("person-detail", args=[str(self.personID)])

@@ -135,10 +135,6 @@ img {
 	display: none;
 }
 
-.banner_nav ul {
-	display: none;
-}
-
 .banner img:hover {
 	scale: 120%;
 }
@@ -220,7 +216,9 @@ body h2 .icon {
 }
 
 .schedule_grid_container {
-	margin: auto 20px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
 	padding: 0px 16px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -286,20 +284,67 @@ body h2 .icon {
 	color: var(--cornsilk);
 }
 
-@media (width > 430px) {
+@media (width < 430px) {
 
 	.schedule_grid_container {
 		margin: auto;
 	}
 
 	.blurb {
-		max-width: 60ch;
+		max-width: 50ch;
+	}
+
+	.sidebar {
+		padding-top: 0;
+		padding-left: 0;
+		padding-right: 0;
+		height: 100vh;
+		width: 0;
+		position: fixed;
+		z-index: 10;
+		top: 0;
+		right: 0;
+		background-color: var(--black_olive);
+		overflow-x: hidden;
+		transition: 0.5s ease-in-out;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2.5vh;
+	}
+
+	.sidebar li a {
+		color: var(--cornsilk);
+		font-size: 5vh;
+		text-decoration: underline;
+	}
+
+	.sidebar li a:hover {
+		scale: 110%;
+	}
+
+	.sidebar li a:focus {
+		scale: 110%;
+	}
+
+	.openbtn {
+		border: none;
+		background-color: var(--cornsilk);
+		z-index: 11;
+		border-radius: 4px;
+		transform: rotate(0);
+		transition: 0.5s ease-in-out;
 	}
 
 }
 
 @media (width > 648px) {
 	
+	.openbtn {
+		display: none;
+	}
+
 	.banner_nav ul {
 		display: flex;
 		flex-direction: row;
@@ -313,6 +358,10 @@ body h2 .icon {
 
 	.banner img {
 		display: none;
+	}
+
+	.blurb {
+		max-width: 80ch;
 	}
 
 }
