@@ -196,6 +196,7 @@ img {
 
 .blurb p {
 	padding: 0;
+	padding-bottom: 8px;
 	font-size: clamp(1rem, 2.5vw, 1.3rem);
 }
 
@@ -835,4 +836,23 @@ div.rsvp_mult_family_select_region input {
 div.rsvp_mult_family_select_region input:focus {
 	width: 24px;
 	height: 24px;
+}
+
+.place_link {
+	text-decoration: underline;
+	padding: 0;
+}
+
+.place_link:hover {
+	font-weight: bold;
+}
+
+.venue_img {
+	display: block;
+	margin: auto;
+	max-width: 35vw;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	border: 2px solid var(--black_olive);
+	box-shadow: var(--box-shadow);
 }

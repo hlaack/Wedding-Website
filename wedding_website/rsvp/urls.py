@@ -10,5 +10,6 @@ urlpatterns = [
     path('rsvp.html', views.rsvp_page, name='rsvp'),
     path('rsvp_select.html', views.rsvp_select, name='rsvp_select'),
     path('rsvp_confirmation.html', views.rsvp_confirmation, name='rsvp_confirmation'),
-    path('rsvp_family_select.html', views.rsvp_family_select, name='rsvp_family_select')
+    path('rsvp_family_select.html', views.rsvp_family_select, name='rsvp_family_select'),
+    path('place.html', views.place, name='place'),
 ]

@@ -133,3 +133,7 @@ def rsvp_family_select(request):
         return HttpResponseRedirect(f"{reverse('rsvp_select')}?family_id={family.familyID}")
 
     return render(request, 'rsvp_family_select.html', {'families': families})
+
+def place(request):
+
+    return render(request, 'place.html')
