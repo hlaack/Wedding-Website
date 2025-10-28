@@ -187,7 +187,7 @@ img {
 }
 
 .blurb {
-	padding-top: 0px;
+	padding-top: 4px;
 	padding-left: 16px;
 	padding-right: 16px;
 	margin: auto;
@@ -855,4 +855,12 @@ div.rsvp_mult_family_select_region input:focus {
 	margin-bottom: 10px;
 	border: 2px solid var(--black_olive);
 	box-shadow: var(--box-shadow);
+}
+
+@media (width < 648px) {
+
+	.venue_img {
+		max-width: 80vw;
+	}
+
 }

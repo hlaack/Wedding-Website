@@ -27,10 +27,10 @@
 
             <nav>
                 <ul class="sidebar">
+                    <li><a href="index.html">home</a></li>
                     <li><a href="people.html">people</a></li>
                     <li><a href="#">registry</a></li>
                     <li><a href="place.html">place</a></li>
-                    <li><a href="travel.html">travel</a></li>
                     <li><a href="password_entry.html">rsvp!</a></li>
                     <li><a href="photos.html">photos</a></li>
                 </ul>
@@ -57,35 +57,27 @@
         
     </div>
 
-    <span class="diamond">&#128310;</span>
+    <h2><span class="pre_icon">travel</span> <span class="icon">🚗</span></h2>
 
     <div class="blurb">
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores odio porro perspiciatis vero nemo rerum ducimus. Suscipit iure natus ipsa ullam eaque, reprehenderit dolorum. Adipisci similique at ut culpa repellendus? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error tempore ex laudantium quia necessitatibus mollitia explicabo, excepturi rerum, a porro corrupti nulla architecto accusantium ad, ipsa quisquam! Aperiam, magnam minima!</p>
+        <p>We know there are many members attending our wedding that are traveling from out of town! We appreciate you making the journey to come celebrate with us!</p>
+        <p>On this page, you can find some recommendations for places to stay, their price points, and their travel distances.</p>
 
     </div>
 
     <span class="diamond">&#128310;</span>
 
-    <h2><span class="pre_icon">day's schedule</span> <span class="icon">☀️</span></h2>
-    
-
-    <div class="schedule_grid_container">
-
-        {% load static %}
-        <img src="{% static 'images/temp/wedding_temp.jpg' %}" alt="Film photo of wedding." width="131">
-        <h3>ceremony!</h3>
-        <p>??:??am on 09/18/26<br>Hanke Hall,<br>Falconwood Park</p>
-
-    </div>
-
-    <span class="diamond">&#128310;</span>
+    <h2><span class="pre_icon">staying at Falconwood</span> <span class="icon">🏠</span></h2>
 
     <div class="blurb">
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est maiores placeat? Eos vel unde nobis fuga, ratione similique obcaecati at excepturi quia. Architecto officiis autem pariatur mollitia quo accusamus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam corporis distinctio ullam? Esse laudantium aspernatur nesciunt sed nihil nulla iure voluptatum aliquid unde. Voluptatem eos quasi, earum perferendis ullam placeat!</p>
+        <p>Your least day-of travel option, Falconwood offers on-site Cabins that are available for booking. Their Duplex Cabin costs $200 and a Single Cabin costs $150 (both not including taxes). For all information concering booking these cabins, <a class="place_link" href="https://www.falconwoodpark.com/book-a-cabin">click here</a>.</p>
 
     </div>
+
+    {% load static %}
+    <img class="venue_img" src={% static "images/temp/hanke_hall.jpg" %} alt="A picture in the evening of our wedding venue, Hanke Hall, lit from within.">
 
     <div class="bottom_links">
 

@@ -137,3 +137,7 @@ def rsvp_family_select(request):
 def place(request):
 
     return render(request, 'place.html')
+
+def travel(request):
+    
+    return render(request, 'travel.html')
