@@ -864,3 +864,13 @@ div.rsvp_mult_family_select_region input:focus {
 	}
 
 }
+
+.travel_header {
+	text-align: center;
+	font-family: var(--fonts);
+	line-height: 1.5;
+	padding: 8px;
+	color: var(--black_olive);
+	font-size: clamp(1rem, 2.5vw, 1.6rem);
+	font-weight: bold;
+}
