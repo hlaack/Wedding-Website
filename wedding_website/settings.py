@@ -61,7 +61,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'wedding_website.wsgi.application'
 
 DATABASES = {
-    "default": env.db(),
+    "default": env.db(default="sqlite:///db.sqlite3"),
 }
 
 LOGGING = {
