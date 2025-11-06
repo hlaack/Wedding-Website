@@ -145,3 +145,6 @@ MEDIA_URL = env("MEDIA_PATH", default="/media/")
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+RSVP_PASSWORD_HASH = env.str("RSVP_PASSWORD_HASH")
+
