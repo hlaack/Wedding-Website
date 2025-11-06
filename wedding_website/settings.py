@@ -119,5 +119,7 @@ MEDIA_URL = env("MEDIA_PATH", default="/media/")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#ADDED TO APPLIKU ENV VARS, REMOVED FROM .ENV
+
 RSVP_PASSWORD_HASH = env.str('RSVP_PASSWORD_HASH')
 
