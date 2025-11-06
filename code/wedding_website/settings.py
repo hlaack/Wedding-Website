@@ -145,5 +145,3 @@ MEDIA_URL = env("MEDIA_PATH", default="/media/")
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-RSVP_PASSWORD_HASH = 'pbkdf2_sha256$600000$LHGYPjVf8d44rTotSnCRCL$odrQpGZx2rjA5iHv/I1pzK6x+6jnB1CvSlnzO7gNvts='
