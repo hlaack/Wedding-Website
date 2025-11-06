@@ -1,6 +1,7 @@
 from pathlib import Path
 import environ
 import os
+import dj_database_url
 
 env = environ.Env(
     DEBUG=(bool, False)
@@ -84,7 +85,7 @@ WSGI_APPLICATION = 'wedding_website.wsgi.application'
 # }
 
 DATABASES = {
-    "default": env.db(default="sqlite:///db.sqlite3"),
+    "default": dj_database_url.config(default=env('DATABASE_URL')),
 }
 
 LOGGING = {
