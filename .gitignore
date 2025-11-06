@@ -1,5 +1,4 @@
-env/
-/code/.env
+.env/
 .idea/
 __pycache__/
 *.py[cod]
@@ -8,4 +7,3 @@ __pycache__/
 .DS_Store
 .AppleDouble
 .LSOverride
-code/.env
