@@ -1,3 +1,3 @@
 #!/bin/sh
 set -e
-gunicorn project.wsgi --log-file -
+gunicorn wedding_website.wsgi:application --log-file -
