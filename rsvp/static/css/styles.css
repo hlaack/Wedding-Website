@@ -285,7 +285,7 @@ body h2 .icon {
 	color: var(--cornsilk);
 }
 
-@media (width < 430px) {
+@media (width < 450px) {
 
 	.schedule_grid_container {
 		margin: auto;
