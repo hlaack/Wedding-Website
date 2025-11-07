@@ -577,8 +577,10 @@ body h2 .icon {
 
 .rsvp_form {
 	padding: 24px;
-	display: grid;
-	grid-template-columns: 1fr;
+	display: flex;
+	flex-direction: column;
+	/* display: grid; */
+	/* grid-template-columns: 1fr; */
 	font-family: var(--fonts);
 	background-color: var(--darker_yellow);
 	border-radius: 8px;
@@ -618,6 +620,7 @@ input:focus {
 
 #submit {
 	background-color: var(--lemon);
+	color: var(--black_olive);
 	width: 30%;
 	height: 48px;
 	font-size: clamp(1rem, 2.5vw, 1.3rem);
