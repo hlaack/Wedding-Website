@@ -47,9 +47,17 @@ table {
 	border-spacing: 0;
 }
 
+
+/* END CSS RESET */
+
+
 :root {
+	/* GENERAL */
+
     --fonts: "Merriweather", serif;
 	--box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+
+	/* LIGHT MODE */
 
 	--cornsilk: #FFF9D6;
 	--lemon: #FCF5C7;
@@ -61,10 +69,19 @@ table {
 
 	--text-shadow: 4px 3px 0 var(--darker_yellow);
 	
+	/* DARK MODE */
+
+	--dark_green: #031911;
+	--dark_shamrock: #063122;
+	--medium_green: #0A4A33;
+	--light_green: #0C5A3E;
+	--night: #0A0A0A;
+
+	--dark_text-shadow: 4px 4px 0 var(--dark_green);
+
 }
 
 body {
-	/* background-color: var(--flax); */
 	background: linear-gradient(315deg, #FFFDD0, #F9EA8B);
 	background-size: 200%;
 
@@ -94,7 +111,6 @@ h1 {
 }
 
 h2 {
-	/* font-size: 1.4rem; */
 	font-size: clamp(1.6rem, 3vw, 2.2rem);
 }
 
@@ -106,7 +122,9 @@ img {
 	max-width: 100%;
 }
 
+/* ======================================================================= */
 /* LANDING PAGE CSS */
+/* ======================================================================= */
 
 .banner {
 	padding: 4px;
@@ -287,10 +305,15 @@ body h2 .icon {
 	color: var(--cornsilk);
 }
 
+/* PHONE MEDIA QUERIES */
+
 @media (width < 450px) {
 
 	.schedule_grid_container {
-		margin: auto;
+		margin-top: auto;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 8px;
 	}
 
 	.blurb {
@@ -342,6 +365,8 @@ body h2 .icon {
 
 }
 
+/* W>PHONE */
+
 @media (width > 648px) {
 	
 	.openbtn {
@@ -368,6 +393,8 @@ body h2 .icon {
 	}
 
 }
+
+/* W>TABLET */
 
 @media (width > 1024px) {
 
@@ -401,6 +428,8 @@ body h2 .icon {
 	}
 
 }
+
+/* WIDESCREEN WIDTH */
 
 @media (width > 1920px) {
 
@@ -453,7 +482,9 @@ body h2 .icon {
 
 }
 
+/* ======================================================================= */
 /* PEOPLE PAGE CSS */
+/* ======================================================================= */
 
 .people_grid_container {
 	display: grid;
@@ -504,6 +535,8 @@ body h2 .icon {
 	font-style: italic;
 }
 
+/* TINY DEVICE CAUTIONS */
+
 @media (width <= 375px) {
 
 	.people_card img {
@@ -511,6 +544,8 @@ body h2 .icon {
 	}
 
 }
+
+/* HANDLING FOR TABLET */
 
 @media (width >= 768px) {
 	
@@ -542,6 +577,8 @@ body h2 .icon {
 
 }
 
+/* LAPTOP & DESKTOP */
+
 @media (width > 1024px) {
 
 	.people_grid_container {
@@ -555,7 +592,9 @@ body h2 .icon {
 
 }
 
+/* ======================================================================= */
 /* RSVP PAGE CSS */
+/* ======================================================================= */
 
 .rsvp_text h1 {
 	text-align: center;
@@ -650,6 +689,8 @@ input:focus {
 	text-align: center;
 }
 
+/* GREATER THAN TABLET */
+
 @media (width > 1024px) {
 	.rsvp_content {
 		max-width: 50vw;
@@ -680,6 +721,8 @@ input:focus {
 
 }
 
+/* TALL DEVICE CAUTIONS */
+
 @media (height > 1080px) {
 	.rsvp_content {
 		max-width: 60vw;
@@ -707,7 +750,9 @@ input:focus {
 	
 }
 
+/* ======================================================================= */
 /* PASSWORD PAGE CSS */
+/* ======================================================================= */
 
 .password_prompt_text {
 	display: flex;
@@ -745,6 +790,8 @@ input:focus {
 	margin-top: 15vh;
 }
 
+/* GREATER THAN TABLET */
+
 @media (width > 1024px) {
 
 	.password_form {
@@ -753,6 +800,8 @@ input:focus {
 	}
 
 }
+
+/* STICKING BOTTOM LINKS TO BOTTOM OF LARGER DEVICES */
 
 @media (height >= 1080px) and (width <= 1024px) {
 
@@ -861,6 +910,8 @@ div.rsvp_mult_family_select_region input:focus {
 	box-shadow: var(--box-shadow);
 }
 
+/* PHONE VENUE IMG SIZING */
+
 @media (width < 648px) {
 
 	.venue_img {
@@ -878,3 +929,34 @@ div.rsvp_mult_family_select_region input:focus {
 	font-size: clamp(1rem, 2.5vw, 1.6rem);
 	font-weight: bold;
 }
+
+/* ======================================================================= */
+/* DARK MODE MEDIA QUERIES */
+/* ======================================================================= */
+
+/* @media (prefers-color-scheme: dark) {
+
+	body {
+		background: linear-gradient(315deg, var(--night), var(--dark_green));
+	}
+
+	.content {
+		background-color: var(--dark_shamrock);
+	}
+
+	h1, h2, h3, p, ul, a {
+		color: var(--cornsilk);
+	}
+
+	.banner {
+		border-bottom: 5px solid var(--night);
+		background-color: var(--dark_green);
+	}
+
+	.banner h1 {
+		text-shadow: var(--dark_text-shadow);
+	}
+
+} */
+
+
