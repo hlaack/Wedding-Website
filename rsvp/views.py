@@ -141,3 +141,7 @@ def place(request):
 def travel(request):
     
     return render(request, 'travel.html')
+
+def questions(request):
+    
+    return render(request, 'questions.html')

@@ -273,6 +273,22 @@ body h2 .icon {
 	font-style: italic;
 }
 
+.questions_button {
+	display: flex;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+
+	background-color: var(--black_olive);
+	color: var(--cream);
+	max-width: fit-content;
+	
+	border-radius: 8px;
+	box-shadow: var(--box-shadow);
+	cursor: pointer;
+	padding: 6px;
+}
+
 .bottom_links {
 	margin-top: auto;
 	margin-bottom: auto;
@@ -787,7 +803,7 @@ input:focus {
 }
 
 .password_bottom_links {
-	margin-top: 15vh;
+	margin-top: 10vh;
 }
 
 /* GREATER THAN TABLET */

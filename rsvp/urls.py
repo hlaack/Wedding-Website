@@ -13,4 +13,5 @@ urlpatterns = [
     path('rsvp_family_select.html', views.rsvp_family_select, name='rsvp_family_select'),
     path('place.html', views.place, name='place'),
     path('travel.html', views.travel, name='travel'),
+    path('questions.html', views.questions, name='questions'),
 ]
