@@ -49,8 +49,10 @@
         {% load static %}
         {% comment %} <img src={% static "images/engagement_photos/AbbyHarryEngagement-007.jpg" %} alt="Test photo."> {% endcomment %}
         {% for file in files %}
-            {% with 'images/'|file as image_static %}
-                <img src="{% static image_static %}" alt="Engagement photo {{ forloop.counter }}.">
+            {% with file as image_static %}
+                <div class="photo_item">
+                    <img src={% static 'images/engagement_photos/'|add:image_static %} alt="Engagement photo {{ forloop.counter }}.">
+                </div>
             {% endwith %}
         {% endfor %}
     </div>

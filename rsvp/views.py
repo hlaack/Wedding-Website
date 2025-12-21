@@ -12,7 +12,7 @@ def people(request):
 def photos(request):
 
     context_dict_photos = {}
-    files = os.listdir(os.path.join(settings.STATIC_URL, "images/engagement_photos"))
+    files = os.listdir(os.path.join(settings.BASE_DIR, "rsvp/static/images/engagement_photos"))
     context_dict_photos['files'] = files
 
     return render(request, 'photos.html', context_dict_photos)
