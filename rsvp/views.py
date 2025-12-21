@@ -1,5 +1,7 @@
+from django.conf import settings
 from django.shortcuts import render
 from .models import Family, Person
+import os
 
 def index(request):
     return render(request, 'index.html')
@@ -8,7 +10,12 @@ def people(request):
     return render(request, 'people.html')
 
 def photos(request):
-    return render(request, 'photos.html')
+
+    context_dict_photos = {}
+    files = os.listdir(os.path.join(settings.STATIC_DIR, "images/engagement_photos"))
+    context_dict_photos['files'] = files
+
+    return render(request, 'photos.html', context_dict_photos)
 
 # def password_entry(request):
 #     return render(request, 'password_entry.html')

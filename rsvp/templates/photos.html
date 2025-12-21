@@ -47,15 +47,12 @@
 
     <div class="photos_grid_container">
         {% load static %}
-        <img src={% static "images/engagement_photos/AbbyHarryEngagement-007.jpg" %} alt="Test photo.">
-        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
-        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
-        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
-        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
-        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
-        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
-        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
-
+        {% comment %} <img src={% static "images/engagement_photos/AbbyHarryEngagement-007.jpg" %} alt="Test photo."> {% endcomment %}
+        {% for file in files %}
+            {% with 'images/'|file as image_static %}
+                <img src="{% static image_static %}" alt="Engagement photo {{ forloop.counter }}.">
+            {% endwith %}
+        {% endfor %}
     </div>
 
     <div class="bottom_links">
