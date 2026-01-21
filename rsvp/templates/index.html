@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no_js">
 
 <head>
     <meta charset="UTF-8">
@@ -19,90 +19,94 @@
 
 <body>
 
-    <div class="banner">
+    <div id="page">
 
-        <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span><span class="ring_icon">💍</span></h1>
+        <div class="banner">
 
-        <div class="banner_nav">
+            <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span><span class="ring_icon">💍</span></h1>
+
+            <div class="banner_nav">
+
+                <nav>
+                    <ul class="sidebar">
+                        <li><a href="people.html">people</a></li>
+                        <li><a href="#">registry</a></li>
+                        <li><a href="place.html">place</a></li>
+                        <li><a href="travel.html">travel</a></li>
+                        <li><a href="password_entry.html">rsvp!</a></li>
+                        <li><a href="photos.html">photos</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            {% load static %}
+            <button class="openbtn" onclick="openNav()"><img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48"></button>
+
+        </div>
+
+        {% load static %}
+        <script src="{% static 'script.js' %}"></script>
+
+        <section class="content">
+
+        <div class="thumbnail">
+            <!-- <h1>Harry Laack & Abby Langseth</h1> -->
+            
+            <div class="thumbnail_anchors">
+                <a href="password_entry.html"><span class="rsvp_button">click here to rsvp!</span></a>
+            </div>
+            
+        </div>
+
+        <div class="blurb">
+
+            <p>Over six years ago, we began our relationship in the Homecoming halls of our high school. And today, we're happy to be celebrating our marriage with family and friends! Browse around to find photos, travel info, and more. Oh, and don't forget to validate your invitation by RSVPing!</p>
+
+        </div>
+
+        <h2><span class="pre_icon">day's schedule</span> <span class="icon">☀️</span></h2>
+        
+
+        <div class="schedule_grid_container">
+
+            {% load static %}
+            <img src="{% static 'images/engagement_photos/AbbyHarryEngagement-083.jpg' %}" alt="Film photo of wedding." width="131">
+            <h3>ceremony!</h3>
+            <p>??:??am on 09/18/26<br>Hanke Hall,<br>Falconwood Park</p>
+
+        </div>
+
+        <div class="blurb">
+
+            <p>Prepare for fun, love, and all things wedding. We're so incredibly excited to have you celebrating with us! Enjoy some food, drink, music, and more come the 18th of September!</p>
+            
+        </div>
+
+        <a href="questions.html"><span class="questions_button">Questions about your invitation?</span></a>
+
+        <div class="bottom_links">
+
+            <p>click below for more!</p>
 
             <nav>
-                <ul class="sidebar">
+                <ul>
                     <li><a href="people.html">people</a></li>
                     <li><a href="#">registry</a></li>
-                    <li><a href="place.html">place</a></li>
-                    <li><a href="travel.html">travel</a></li>
+                    <li><a href="#">place</a></li>
+                    <li><a href="#">travel</a></li>
                     <li><a href="password_entry.html">rsvp!</a></li>
                     <li><a href="photos.html">photos</a></li>
                 </ul>
             </nav>
 
+            <h3>&copy; 2025, Harry Laack & Abby Langseth</h3>
+
         </div>
 
-        {% load static %}
-        <button class="openbtn" onclick="openNav()"><img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48"></button>
+        </section>
 
     </div>
-
-    {% load static %}
-    <script src="{% static 'script.js' %}"></script>
-
-    <section class="content">
-
-    <div class="thumbnail">
-        <!-- <h1>Harry Laack & Abby Langseth</h1> -->
-        
-        <div class="thumbnail_anchors">
-            <a href="password_entry.html"><span class="rsvp_button">click here to rsvp!</span></a>
-        </div>
-        
-    </div>
-
-    <div class="blurb">
-
-        <p>Over six years ago, we began our relationship in the Homecoming halls of our high school. And today, we're happy to be celebrating our marriage with family and friends! Browse around to find photos, travel info, and more. Oh, and don't forget to validate your invitation by RSVPing!</p>
-
-    </div>
-
-    <h2><span class="pre_icon">day's schedule</span> <span class="icon">☀️</span></h2>
-    
-
-    <div class="schedule_grid_container">
-
-        {% load static %}
-        <img src="{% static 'images/engagement_photos/AbbyHarryEngagement-083.jpg' %}" alt="Film photo of wedding." width="131">
-        <h3>ceremony!</h3>
-        <p>??:??am on 09/18/26<br>Hanke Hall,<br>Falconwood Park</p>
-
-    </div>
-
-    <div class="blurb">
-
-        <p>Prepare for fun, love, and all things wedding. We're so incredibly excited to have you celebrating with us! Enjoy some food, drink, music, and more come the 18th of September!</p>
-        
-    </div>
-
-    <a href="questions.html"><span class="questions_button">Questions about your invitation?</span></a>
-
-    <div class="bottom_links">
-
-        <p>click below for more!</p>
-
-        <nav>
-            <ul>
-                <li><a href="people.html">people</a></li>
-                <li><a href="#">registry</a></li>
-                <li><a href="#">place</a></li>
-                <li><a href="#">travel</a></li>
-                <li><a href="password_entry.html">rsvp!</a></li>
-                <li><a href="photos.html">photos</a></li>
-            </ul>
-        </nav>
-
-        <h3>&copy; 2025, Harry Laack & Abby Langseth</h3>
-
-    </div>
-
-    </section>
 
 </body>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no_js">
 
 <head>
     <meta charset="UTF-8">
@@ -18,81 +18,85 @@
 
 <body>
 
-    <div class="banner">
+    <div id="page">
 
-        <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span><span class="ring_icon">💍</span></h1>
+        <div class="banner">
 
-        <div class="banner_nav">
+            <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span><span class="ring_icon">💍</span></h1>
 
-            <nav>
-                <ul class="sidebar">
-                    <li><a href="index.html">home</a></li>
-                    <li><a href="people.html">people</a></li>
-                    <li><a href="#">registry</a></li>
-                    <li><a href="place.html">place</a></li>
-                    <li><a href="travel.html">travel</a></li>
-                    <li><a href="photos.html">photos</a></li>
-                </ul>
-            </nav>
+            <div class="banner_nav">
+
+                <nav>
+                    <ul class="sidebar">
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="people.html">people</a></li>
+                        <li><a href="#">registry</a></li>
+                        <li><a href="place.html">place</a></li>
+                        <li><a href="travel.html">travel</a></li>
+                        <li><a href="photos.html">photos</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            {% load static %}
+            <button class="openbtn" onclick="openNav()"><img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48"></button>
 
         </div>
 
         {% load static %}
-        <button class="openbtn" onclick="openNav()"><img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48"></button>
+        <script src="{% static 'script.js' %}"></script>
+
+        <div class="rsvp_content">
+
+        <section class="content">
+
+        <div class="thumbnail"></div>
+
+        <section class="rsvp_text">
+
+            <h1>We'll see you then and there!</h1>
+
+            <p class="rsvp_entry_confirmation">This is confirmation that the selected members of your family have been successfully RSVPd for our wedding! Yay!</p>
+
+            <p class="rsvp_entry_confirmation_precheck">If at any time you wish to change someone's RSVP status, simply navigate back to the RSVP page and deselect those members!</p>
+
+        </section>
+
+        <div class="rsvp_confirmation_photo">
+            {% load static %}
+            <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
+        </div>
+
+        <div class="rsvp_clarification">
+            <p>The information you have provided to us in the previous forms is stored safely in a private database and will only be able to be accessed by Harry and Abby. This is Harry promising to keep your stuff safe!</p>
+        </div>
+
+        </div>
+
+        <div class="bottom_links rsvp_bottom_links">
+
+            <p>click below for more!</p>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="people.html">people</a></li>
+                    <li><a href="#">registry</a></li>
+                    <li><a href="#">place</a></li>
+                    <li><a href="#">travel</a></li>
+                    <li><a href="photos.html">photos</a></li>
+                    <li><a href="password_entry.html">rsvp!</a></li>
+                </ul>
+            </nav>
+
+            <h3>&copy; 2025, Harry Laack & Abby Langseth</h3>
+
+        </div>
+
+        </section>
 
     </div>
-
-    {% load static %}
-    <script src="{% static 'script.js' %}"></script>
-
-    <div class="rsvp_content">
-
-    <section class="content">
-
-    <div class="thumbnail"></div>
-
-    <section class="rsvp_text">
-
-        <h1>We'll see you then and there!</h1>
-
-        <p class="rsvp_entry_confirmation">This is confirmation that the selected members of your family have been successfully RSVPd for our wedding! Yay!</p>
-
-        <p class="rsvp_entry_confirmation_precheck">If at any time you wish to change someone's RSVP status, simply navigate back to the RSVP page and deselect those members!</p>
-
-    </section>
-
-    <div class="rsvp_confirmation_photo">
-        {% load static %}
-        <img src={% static "images/temp/test1.jpg" %} alt="Test photo.">
-    </div>
-
-    <div class="rsvp_clarification">
-        <p>The information you have provided to us in the previous forms is stored safely in a private database and will only be able to be accessed by Harry and Abby. This is Harry promising to keep your stuff safe!</p>
-    </div>
-
-    </div>
-
-    <div class="bottom_links rsvp_bottom_links">
-
-        <p>click below for more!</p>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">home</a></li>
-                <li><a href="people.html">people</a></li>
-                <li><a href="#">registry</a></li>
-                <li><a href="#">place</a></li>
-                <li><a href="#">travel</a></li>
-                <li><a href="photos.html">photos</a></li>
-                <li><a href="password_entry.html">rsvp!</a></li>
-            </ul>
-        </nav>
-
-        <h3>&copy; 2025, Harry Laack & Abby Langseth</h3>
-
-    </div>
-
-    </section>
 
 </body>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no_js">
 
 <head>
     <meta charset="UTF-8">
@@ -18,86 +18,90 @@
 
 <body>
 
-    <div class="banner">
+    <div id="page">
 
-        <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span><span class="ring_icon">💍</span></h1>
+        <div class="banner">
 
-        <div class="banner_nav">
+            <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span><span class="ring_icon">💍</span></h1>
 
-            <nav>
-                <ul class="sidebar">
-                    <li><a href="index.html">home</a></li>
-                    <li><a href="people.html">people</a></li>
-                    <li><a href="#">registry</a></li>
-                    <li><a href="place.html">place</a></li>
-                    <li><a href="travel.html">travel</a></li>
-                    <li><a href="photos.html">photos</a></li>
-                </ul>
-            </nav>
+            <div class="banner_nav">
+
+                <nav>
+                    <ul class="sidebar">
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="people.html">people</a></li>
+                        <li><a href="#">registry</a></li>
+                        <li><a href="place.html">place</a></li>
+                        <li><a href="travel.html">travel</a></li>
+                        <li><a href="photos.html">photos</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            {% load static %}
+            <button class="openbtn" onclick="openNav()"><img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48"></button>
 
         </div>
 
         {% load static %}
-        <button class="openbtn" onclick="openNav()"><img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48"></button>
+        <script src="{% static 'script.js' %}"></script>
 
-    </div>
+        <div class="rsvp_content">
 
-    {% load static %}
-    <script src="{% static 'script.js' %}"></script>
+        <section class="content">
 
-    <div class="rsvp_content">
+        <div class="thumbnail"></div>
 
-    <section class="content">
+        <section class="rsvp_text">
 
-    <div class="thumbnail"></div>
+            <h1>We're excited to celebrate with you!</h1>
 
-    <section class="rsvp_text">
+            <p class="rsvp_entry_confirmation">We've received your request. Here are the invited members of the {{ family.family_name }} family! Ensure you select all who are attending. Don't worry, you can come back later!</p>
 
-        <h1>We're excited to celebrate with you!</h1>
+            <p class="rsvp_entry_confirmation_precheck">If a member is already checked, they have already RSVPd! You may uncheck them to remove them from the RSVP list.</p>
 
-        <p class="rsvp_entry_confirmation">We've received your request. Here are the invited members of the {{ family.family_name }} family! Ensure you select all who are attending. Don't worry, you can come back later!</p>
+        </section>
 
-        <p class="rsvp_entry_confirmation_precheck">If a member is already checked, they have already RSVPd! You may uncheck them to remove them from the RSVP list.</p>
+        <form class="rsvp_form" method="post" action="">
+        
+            {% csrf_token %}
+            <input type="hidden" name="last_name" value="{{ family.name }}">
+            <div class="rsvp_selection_region">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" id="submit" name="submit">Submit!</button>
 
-    </section>
+        </form>
 
-    <form class="rsvp_form" method="post" action="">
-    
-        {% csrf_token %}
-        <input type="hidden" name="last_name" value="{{ family.name }}">
-        <div class="rsvp_selection_region">
-            {{ form.as_p }}
+        <div class="rsvp_clarification">
+            <p>The information provided to us in the following form is for planning use only, and will not be provided beyond use for Harry and Abby. Your information is securely stored within a private server and database and cannot be seen or accessed by any outside user.</p>
         </div>
-        <button type="submit" id="submit" name="submit">Submit!</button>
 
-    </form>
+        </div>
 
-    <div class="rsvp_clarification">
-        <p>The information provided to us in the following form is for planning use only, and will not be provided beyond use for Harry and Abby. Your information is securely stored within a private server and database and cannot be seen or accessed by any outside user.</p>
-    </div>
+        <div class="bottom_links rsvp_bottom_links">
 
-    </div>
+            <p>click below for more!</p>
 
-    <div class="bottom_links rsvp_bottom_links">
+            <nav>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="people.html">people</a></li>
+                    <li><a href="#">registry</a></li>
+                    <li><a href="#">place</a></li>
+                    <li><a href="#">travel</a></li>
+                    <li><a href="photos.html">photos</a></li>
+                </ul>
+            </nav>
 
-        <p>click below for more!</p>
+            <h3>&copy; 2025, Harry Laack & Abby Langseth</h3>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">home</a></li>
-                <li><a href="people.html">people</a></li>
-                <li><a href="#">registry</a></li>
-                <li><a href="#">place</a></li>
-                <li><a href="#">travel</a></li>
-                <li><a href="photos.html">photos</a></li>
-            </ul>
-        </nav>
+        </div>
 
-        <h3>&copy; 2025, Harry Laack & Abby Langseth</h3>
+        </section>
 
     </div>
-
-    </section>
 
 </body>
 

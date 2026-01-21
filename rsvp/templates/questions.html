@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no_js">
 
 <head>
     <meta charset="UTF-8">
@@ -19,98 +19,117 @@
 
 <body>
 
-    <div class="banner">
+    <div id="page">
 
-        <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span><span class="ring_icon">💍</span></h1>
+        <div class="banner">
 
-        <div class="banner_nav">
+            <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span><span class="ring_icon">💍</span></h1>
+
+            <div class="banner_nav">
+
+                <nav>
+                    <ul class="sidebar">
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="people.html">people</a></li>
+                        <li><a href="#">registry</a></li>
+                        <li><a href="place.html">place</a></li>
+                        <li><a href="password_entry.html">rsvp!</a></li>
+                        <li><a href="photos.html">photos</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            {% load static %}
+            <button class="openbtn" onclick="openNav()"><img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48"></button>
+
+        </div>
+
+        {% load static %}
+        <script src="{% static 'script.js' %}"></script>
+
+        <section class="content">
+
+        <div class="thumbnail">
+            <!-- <h1>Harry Laack & Abby Langseth</h1> -->
+            
+            <div class="thumbnail_anchors">
+                <a href="password_entry.html"><span class="rsvp_button">click here to rsvp!</span></a>
+            </div>
+            
+        </div>
+
+        <h2><span class="pre_icon">Q & A</span></h2>
+
+        <div class="blurb">
+
+            <p>We are sure you have plenty of questions about the wedding, and you've come to the right place.</p>
+            <p>Look below to find some answers to common questions. Afterwards, if you're still wondering, feel free to reach out.</p>
+
+        </div>
+
+        <h3 class="travel_header"><span class="pre_icon">Can I bring a date?</span></h3>
+
+        <div class="blurb">
+
+            <p>In an effort to keep our guest list intimate, only guests formally named on your invitation or within the RSVP form will be accomodated.</p>
+
+        </div>
+
+        <h3 class="travel_header"><span class="pre_icon">Are children invited?</span></h3>
+
+        <div class="blurb">
+
+            <p>Only the children whose names are listed specifically on your family's RSVP form are invited. We appreciate your understanding.</p>
+
+        </div>
+
+        <h3 class="travel_header"><span class="pre_icon">What should I wear?</span></h3>
+
+        <div class="blurb">
+
+            <p>The dress code for our Ceremony and Reception is Cocktail Attire. Suits and ties, formal pantsuits, and elegant, knee-length or midi-length cocktail dresses are all welcome. Please, no denim, khaki, or dresses in shades of white, ivory, or cream.</p>
+
+        </div>
+            
+        <h3 class="travel_header"><span class="pre_icon">What time should I arrive for the ceremony?</span></h3>
+
+        <div class="blurb">
+
+            <p>We suggest arriving to the venue at [TIME] to ensure ample time to park and find the ceremony area, as our ceremony will begin promptly at [TIME].</p>
+
+        </div>
+
+        <h3 class="travel_header"><span class="pre_icon">Is it an Open Bar?</span></h3>
+
+        <div class="blurb">
+
+            <p>{% lorem 1 b random %}</p>
+
+        </div>
+
+        <div class="bottom_links">
+
+            <p>click below for more!</p>
 
             <nav>
-                <ul class="sidebar">
-                    <li><a href="index.html">home</a></li>
+                <ul>
                     <li><a href="people.html">people</a></li>
                     <li><a href="#">registry</a></li>
                     <li><a href="place.html">place</a></li>
+                    <li><a href="travel.html">travel</a></li>
                     <li><a href="password_entry.html">rsvp!</a></li>
                     <li><a href="photos.html">photos</a></li>
                 </ul>
             </nav>
 
+            <h3>&copy; 2025, Harry Laack & Abby Langseth</h3>
+
         </div>
 
-        {% load static %}
-        <button class="openbtn" onclick="openNav()"><img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48"></button>
+        </section>
 
     </div>
-
-    {% load static %}
-    <script src="{% static 'script.js' %}"></script>
-
-    <section class="content">
-
-    <div class="thumbnail">
-        <!-- <h1>Harry Laack & Abby Langseth</h1> -->
-        
-        <div class="thumbnail_anchors">
-            <a href="password_entry.html"><span class="rsvp_button">click here to rsvp!</span></a>
-        </div>
-        
-    </div>
-
-    <h2><span class="pre_icon">Q & A</span></h2>
-
-    <div class="blurb">
-
-        <p>We are sure you have plenty of questions about the wedding, and you've come to the right place.</p>
-        <p>Look below to find some answers to common questions. Afterwards, if you're still wondering, feel free to reach out.</p>
-
-    </div>
-
-    <h3 class="travel_header"><span class="pre_icon">Who on my invite is invited?</span></h3>
-
-    <div class="blurb">
-
-        <p>From the envelope wrapping the Save the Date or Invitation you have received, the invited members of your party are strictly those listed on the front.</p>
-
-    </div>
-
-    <h3 class="travel_header"><span class="pre_icon">Concerning children:</span></h3>
-
-    <div class="blurb">
-
-        <p>This is one of the hardest decisions we had to make. While we love and appreciate everyone's kiddos, we are asking that only those members of your family/party listed on the envelope of either the Save the Date or the Invitation attend.</p>
-        <p>We completely understand that this requires a great deal of planning and absolutely can be stressful. If this is a barrier to your attendance, we genuinely get it.</p>
-
-    </div>
-
-    <h3 class="travel_header"><span class="pre_icon">Question 3</span></h3>
-
-    <div class="blurb">
-
-        <p>{% lorem 1 b random %}</p>
-
-    </div>
-
-    <div class="bottom_links">
-
-        <p>click below for more!</p>
-
-        <nav>
-            <ul>
-                <li><a href="people.html">people</a></li>
-                <li><a href="#">registry</a></li>
-                <li><a href="#">place</a></li>
-                <li><a href="#">travel</a></li>
-                <li><a href="password_entry.html">rsvp!</a></li>
-                <li><a href="photos.html">photos</a></li>
-            </ul>
-        </nav>
-
-        <h3>&copy; 2025, Harry Laack & Abby Langseth</h3>
-
-    </div>
-
-    </section>
 
 </body>
 

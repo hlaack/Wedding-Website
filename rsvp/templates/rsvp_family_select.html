@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no_js">
 
 <head>
     <meta charset="UTF-8">
@@ -18,98 +18,102 @@
 
 <body>
 
-    <div class="banner">
+    <div id="page">
 
-        <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span><span class="ring_icon">💍</span></h1>
+        <div class="banner">
 
-        <div class="banner_nav">
+            <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span><span class="ring_icon">💍</span></h1>
 
-            <nav>
-                <ul class="sidebar">
-                    <li><a href="index.html">home</a></li>
-                    <li><a href="people.html">people</a></li>
-                    <li><a href="#">registry</a></li>
-                    <li><a href="place.html">place</a></li>
-                    <li><a href="travel.html">travel</a></li>
-                    <li><a href="photos.html">photos</a></li>
-                </ul>
-            </nav>
+            <div class="banner_nav">
+
+                <nav>
+                    <ul class="sidebar">
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="people.html">people</a></li>
+                        <li><a href="#">registry</a></li>
+                        <li><a href="place.html">place</a></li>
+                        <li><a href="travel.html">travel</a></li>
+                        <li><a href="photos.html">photos</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            {% load static %}
+            <button class="openbtn" onclick="openNav()"><img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48"></button>
 
         </div>
 
         {% load static %}
-        <button class="openbtn" onclick="openNav()"><img src={% static "images/temp/keyboard_double_arrow_left_48dp_000000_FILL0_wght400_GRAD0_opsz48.svg" %} alt="Menu icon." width="48" height="48"></button>
+        <script src="{% static 'script.js' %}"></script>
 
-    </div>
+        <div class="rsvp_content">
 
-    {% load static %}
-    <script src="{% static 'script.js' %}"></script>
+        <section class="content">
 
-    <div class="rsvp_content">
+        <div class="thumbnail"></div>
 
-    <section class="content">
+        <section class="rsvp_text">
 
-    <div class="thumbnail"></div>
+            <h1>We're excited to celebrate with you!</h1>
 
-    <section class="rsvp_text">
+            <p class="rsvp_entry_confirmation">We've received your request. We've found multiple families under the same last name! Hello to all! Please select the correct family to continue.</p>
 
-        <h1>We're excited to celebrate with you!</h1>
+            <p class="rsvp_entry_confirmation_precheck">This screen will only show the two alphabetically foremost members of your family. You all will appear on the following page!</p>
 
-        <p class="rsvp_entry_confirmation">We've received your request. We've found multiple families under the same last name! Hello to all! Please select the correct family to continue.</p>
+        </section>
 
-        <p class="rsvp_entry_confirmation_precheck">This screen will only show the two alphabetically foremost members of your family. You all will appear on the following page!</p>
-
-    </section>
-
-    <form class="rsvp_form" method="post">
-        {% csrf_token %}
-        <div class="rsvp_mult_family_select_region">
-            <p>Select your family:</p>
-            <ul>
-                {% for family in families %}
-                <li>
-                    <label>
-                    <input type="radio" name="family_id" value="{{ family.familyID }}" required>
-                    <strong>{{ family.family_name }}</strong> –
-                    (
-                    {% for person in family.people.all|slice:":2" %}
-                        {{ person.first_name }}{% if not forloop.last %}, {% endif %}
+        <form class="rsvp_form" method="post">
+            {% csrf_token %}
+            <div class="rsvp_mult_family_select_region">
+                <p>Select your family:</p>
+                <ul>
+                    {% for family in families %}
+                    <li>
+                        <label>
+                        <input type="radio" name="family_id" value="{{ family.familyID }}" required>
+                        <strong>{{ family.family_name }}</strong> –
+                        (
+                        {% for person in family.people.all|slice:":2" %}
+                            {{ person.first_name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                        )
+                        </label>
+                    </li>
                     {% endfor %}
-                    )
-                    </label>
-                </li>
-                {% endfor %}
-            </ul>
+                </ul>
+            </div>
+            <button type="submit" id="submit" name="submit">Submit!</button>
+        </form>
+        
+        <div class="rsvp_clarification">
+            <p>The information provided to us in the following form is for planning use only, and will not be provided beyond use for Harry and Abby. Your information is securely stored within a private server and database and cannot be seen or accessed by any outside user.</p>
         </div>
-        <button type="submit" id="submit" name="submit">Submit!</button>
-    </form>
-    
-    <div class="rsvp_clarification">
-        <p>The information provided to us in the following form is for planning use only, and will not be provided beyond use for Harry and Abby. Your information is securely stored within a private server and database and cannot be seen or accessed by any outside user.</p>
-    </div>
+
+        </div>
+
+        <div class="bottom_links rsvp_bottom_links">
+
+            <p>click below for more!</p>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="people.html">people</a></li>
+                    <li><a href="#">registry</a></li>
+                    <li><a href="#">place</a></li>
+                    <li><a href="#">travel</a></li>
+                    <li><a href="photos.html">photos</a></li>
+                </ul>
+            </nav>
+
+            <h3>&copy; 2025, Harry Laack & Abby Langseth</h3>
+
+        </div>
+
+        </section>
 
     </div>
-
-    <div class="bottom_links rsvp_bottom_links">
-
-        <p>click below for more!</p>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">home</a></li>
-                <li><a href="people.html">people</a></li>
-                <li><a href="#">registry</a></li>
-                <li><a href="#">place</a></li>
-                <li><a href="#">travel</a></li>
-                <li><a href="photos.html">photos</a></li>
-            </ul>
-        </nav>
-
-        <h3>&copy; 2025, Harry Laack & Abby Langseth</h3>
-
-    </div>
-
-    </section>
 
 </body>
 

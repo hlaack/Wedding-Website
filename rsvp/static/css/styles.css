@@ -123,6 +123,41 @@ img {
 }
 
 /* ======================================================================= */
+/* PAGE TRANSITIONS */
+/* ======================================================================= */
+
+.no-js #page {
+	opacity: 1;
+}
+
+#page {
+	/* hidden by default so the incoming page doesn't flash before JS runs */
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(8px);
+	transition: opacity 450ms cubic-bezier(.22,1,.36,1), transform 450ms cubic-bezier(.22,1,.36,1);
+	will-change: opacity, transform;
+	min-height: 100vh;
+}
+
+#page.loaded {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	transition-delay: 0s;
+}
+
+#page.fade-out {
+	/* keep element visible while the fade-out animation runs */
+	opacity: 0;
+	visibility: visible;
+	transform: translateY(-8px) scale(.995);
+	transition-duration: 450ms;
+	transition-timing-function: cubic-bezier(.22,1,.36,1);
+	pointer-events: none;
+}
+
+/* ======================================================================= */
 /* LANDING PAGE CSS */
 /* ======================================================================= */
 
@@ -464,9 +499,15 @@ body h2 .icon {
 	padding: 74px 16px 8px 16px;
 	gap: 16px;
 	grid-template-columns: 1fr; */
+	opacity: 0;
+	transition: opacity 0.5s ease;
 	column-count: 1;
 	column-gap: 16px;
 	padding: 74px 16px 8px 16px;
+}
+
+.photos_grid_container.loaded {
+	opacity: 1;
 }
 
 .photo_item {
