@@ -326,6 +326,12 @@ body h2 .icon {
 	padding: 6px;
 }
 
+.questions_button:hover {
+	background-color: var(--darker_yellow);
+	color: var(--black_olive);
+	cursor: pointer;
+}
+
 .bottom_links {
 	margin-top: auto;
 	margin-bottom: auto;

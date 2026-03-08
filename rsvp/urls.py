@@ -14,4 +14,5 @@ urlpatterns = [
     path('place.html', views.place, name='place'),
     path('travel.html', views.travel, name='travel'),
     path('questions.html', views.questions, name='questions'),
+    path('registry.html', views.registry, name='registry'),
 ]

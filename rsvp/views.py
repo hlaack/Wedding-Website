@@ -152,3 +152,7 @@ def travel(request):
 def questions(request):
     
     return render(request, 'questions.html')
+
+def registry(request):
+    
+    return render(request, 'registry.html')
