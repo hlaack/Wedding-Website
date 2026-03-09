@@ -30,7 +30,7 @@ class Family(models.Model):
     )
 
     phone_number = PhoneNumberField(
-        max_length=10,
+        max_length=12,
         null=True,
         blank=True
     )
