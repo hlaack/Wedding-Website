@@ -2,6 +2,18 @@ from django.conf import settings
 from django.shortcuts import render
 from .models import Family, Person
 import os
+from functools import wraps
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+def rsvp_authenticated_required(view_func):
+    """Decorator to check if user has entered correct RSVP password"""
+    @wraps(view_func)
+    def wrapper(request, *args, **kwargs):
+        if not request.session.get('rsvp_authenticated'):
+            return HttpResponseRedirect(reverse('password_entry'))
+        return view_func(request, *args, **kwargs)
+    return wrapper
 
 def index(request):
     return render(request, 'index.html')
@@ -24,8 +36,6 @@ def photos(request):
 #     return render(request, 'rsvp.html')
 
 from django.shortcuts import get_object_or_404
-from django.http import HttpResponseRedirect
-from django.urls import reverse
 from .forms import PasswordEntryForm, RsvpQueryForm, RsvpPersonSelectForm
 from django.contrib import messages
 
@@ -36,6 +46,7 @@ def rsvp_password_entry(request):
         form = PasswordEntryForm(request.POST)
 
         if form.is_valid():
+            request.session['rsvp_authenticated'] = True
             return HttpResponseRedirect(reverse('rsvp'))
 
     else:
@@ -43,6 +54,7 @@ def rsvp_password_entry(request):
 
     return render(request, 'password_entry.html', {'form': form})
         
+@rsvp_authenticated_required
 def rsvp_page(request):
 
     for key in ['entered_email', 'entered_phone_num']:
@@ -85,9 +97,12 @@ def rsvp_page(request):
 
     return render(request, 'rsvp.html', {'form': form})
 
+@rsvp_authenticated_required
 def rsvp_select(request):
 
     #last_name = request.GET.get('last_name') or request.POST.get('last_name')
+    family_id = request.GET.get('family_id') or request.POST.get('family_id')
+    family = get_object_or_404(Family, familyID=family_id)
     family_id = request.GET.get('family_id') or request.POST.get('family_id')
     family = get_object_or_404(Family, familyID=family_id)
 
@@ -110,10 +125,12 @@ def rsvp_select(request):
 
     return render(request, 'rsvp_select.html', {'form' : form, 'family' : family})
 
+@rsvp_authenticated_required
 def rsvp_confirmation(request):
 
     return render(request, 'rsvp_confirmation.html')
 
+@rsvp_authenticated_required
 def rsvp_family_select(request):
 
     #TODO:
