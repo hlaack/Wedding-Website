@@ -594,7 +594,10 @@ body h2 .icon {
 	grid-row: span 2;
 	clip-path: circle();
 	max-width: 35vw;
+	width: 35vw;
+	aspect-ratio: 1;
 	margin: auto;
+	object-fit: cover;
 }
 
 .people_card p {
@@ -636,7 +639,10 @@ body h2 .icon {
 	.people_card img {
 		grid-row: 3/4;
 		max-width: 40vw;
+		width: 40vw;
+		aspect-ratio: 1;
 		margin-bottom: 8px;
+		object-fit: cover;
 	}
 
 	.people_card p {
