@@ -40,6 +40,9 @@ from .forms import PasswordEntryForm, RsvpQueryForm, RsvpPersonSelectForm
 from django.contrib import messages
 
 def rsvp_password_entry(request):
+    # If already authenticated, redirect to rsvp page
+    if request.session.get('rsvp_authenticated'):
+        return HttpResponseRedirect(reverse('rsvp'))
 
     if request.method == 'POST':
 
