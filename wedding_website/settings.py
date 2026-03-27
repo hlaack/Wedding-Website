@@ -71,7 +71,30 @@ LOGGING = {
     "loggers": {"": {"handlers": ["console"], "level": "DEBUG"}},
 }
 
+# Security: HTTPS and HSTS
+SECURE_SSL_REDIRECT = not DEBUG
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# Security: Additional HTTP Headers
+SECURE_CONTENT_SECURITY_POLICY = {
+    "default-src": ("'self'",),
+    "script-src": ("'self'", "fonts.googleapis.com"),
+    "style-src": ("'self'", "fonts.googleapis.com", "fonts.gstatic.com"),
+    "font-src": ("fonts.gstatic.com",),
+    "img-src": ("'self'", "data:"),
+}
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = "DENY"
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
+
+# Security: Session Cookies
+SESSION_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = "Strict"
+SESSION_COOKIE_AGE = 3600  # 1 hour
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
