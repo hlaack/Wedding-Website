@@ -80,11 +80,20 @@
 
         {% if form.errors %}
             <div class="form-errors">
+                {% for error in form.non_field_errors %}
+                    <p class="error-message">{{ error }}</p>
+                {% endfor %}
                 {% for error in form.entered_last_name.errors %}
-                    <p>{{ error }}</p>
+                    <p class="error-message">{{ error }}</p>
                 {% endfor %}
                 {% for error in form.entered_first_name.errors %}
-                    <p>{{ error }}</p>
+                    <p class="error-message">{{ error }}</p>
+                {% endfor %}
+                {% for error in form.entered_email.errors %}
+                    <p class="error-message">{{ error }}</p>
+                {% endfor %}
+                {% for error in form.entered_phone_num.errors %}
+                    <p class="error-message">{{ error }}</p>
                 {% endfor %}
             </div>
         {% endif %}

@@ -99,7 +99,8 @@ def rsvp_page(request):
             # Generic error if no families found (prevents user enumeration)
             if families.count() == 0:
                 logger.info(f"RSVP lookup attempt for non-existent family: {last_name}")
-                form.add_error(None, "Unable to find your information. Please check your entry and try again.")
+                # Add error to last_name field so it displays where user can see it
+                form.add_error('entered_last_name', "We couldn't find your information. Please check your entry and try again.")
                 return render(request, 'rsvp.html', {'form': form})
 
             if families.count() > 1:
