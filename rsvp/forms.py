@@ -31,11 +31,9 @@ class RsvpQueryForm(forms.Form):
 
     entered_phone_num = PhoneNumberField(region="US")
 
-    def clean_entered_last_name(self):
-        last_name = self.cleaned_data['entered_last_name']
-
-        if not Family.objects.filter(family_name__iexact=last_name).exists():
-            raise ValidationError("We couldn't find a family with that last name. Please check and try again.")
+    # Removed clean_entered_last_name to prevent user enumeration.
+    # Don't reveal whether a family name exists in the database.
+    # Validation is handled in the view with generic error messages.
         
     # def clean_entered_first_name(self):
     #     first_name = self.cleaned_data['entered_first_name']

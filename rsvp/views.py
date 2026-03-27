@@ -5,6 +5,10 @@ import os
 from functools import wraps
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+import logging
+from django_ratelimit.decorators import ratelimit
+
+logger = logging.getLogger(__name__)
 
 def rsvp_authenticated_required(view_func):
     """Decorator to check if user has entered correct RSVP password"""
@@ -39,23 +43,39 @@ from django.shortcuts import get_object_or_404
 from .forms import PasswordEntryForm, RsvpQueryForm, RsvpPersonSelectForm
 from django.contrib import messages
 
+@ratelimit(key='ip', rate='5/5m', method='POST', block=True)
 def rsvp_password_entry(request):
+    """Handle RSVP password entry with rate limiting to prevent brute force attacks."""
     # If already authenticated, redirect to rsvp page
     if request.session.get('rsvp_authenticated'):
         return HttpResponseRedirect(reverse('rsvp'))
 
     if request.method == 'POST':
-
         form = PasswordEntryForm(request.POST)
 
         if form.is_valid():
             request.session['rsvp_authenticated'] = True
+            logger.info(f"Successful RSVP authentication from IP: {get_client_ip(request)}")
             return HttpResponseRedirect(reverse('rsvp'))
+        else:
+            # Log failed authentication attempts
+            logger.warning(f"Failed RSVP authentication attempt from IP: {get_client_ip(request)}")
+            # Generic message - don't reveal if password is wrong
+            form.add_error(None, "Invalid password. Please try again.")
 
     else:
         form = PasswordEntryForm()
 
     return render(request, 'password_entry.html', {'form': form})
+
+def get_client_ip(request):
+    """Extract client IP address from request, accounting for proxies."""
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0].strip()
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
         
 @rsvp_authenticated_required
 def rsvp_page(request):
@@ -73,23 +93,24 @@ def rsvp_page(request):
         if form.is_valid():
 
             families = Family.objects.filter(family_name__iexact=last_name)
-            #family = get_object_or_404(Family, family_name__iexact=last_name)
             email = form.cleaned_data['entered_email']
             phone_num = form.cleaned_data['entered_phone_num']
+
+            # Generic error if no families found (prevents user enumeration)
+            if families.count() == 0:
+                logger.info(f"RSVP lookup attempt for non-existent family: {last_name}")
+                form.add_error(None, "Unable to find your information. Please check your entry and try again.")
+                return render(request, 'rsvp.html', {'form': form})
 
             if families.count() > 1:
                 request.session['entered_email'] = email
                 request.session['entered_phone_num'] = str(phone_num)
                 return HttpResponseRedirect(f"{reverse('rsvp_family_select')}?last_name={last_name}")
-                #TODO: CREATE RSVP_FAMILY_SELECT PAGE
 
             family = families.first()
-
             family.email = email
             family.phone_number = phone_num
             family.save()
-
-            #TODO: CHECK IF MULTIPLE OF LAST NAME, THEN REDIRECT TO SELECT
 
             personName = form.cleaned_data['entered_first_name']
             messages.success(request, personName)
