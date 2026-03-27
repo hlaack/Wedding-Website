@@ -28,7 +28,7 @@ class FamilyAdmin(admin.ModelAdmin):
         return obj.people.count()
     person_count.short_description = 'Family Size'
     
-    def has_delete_permission(self, request):
+    def has_delete_permission(self, request, obj=None):
         """Restrict delete permission to prevent accidental data loss."""
         return request.user.is_superuser
     
@@ -58,7 +58,7 @@ class PersonAdmin(admin.ModelAdmin):
         }),
     )
     
-    def has_delete_permission(self, request):
+    def has_delete_permission(self, request, obj=None):
         """Restrict delete permission to superusers only."""
         return request.user.is_superuser
     
@@ -92,7 +92,7 @@ class RSVP_ProtectorAdmin(admin.ModelAdmin):
         """Only superusers can modify password records."""
         return request.user.is_superuser
     
-    def has_delete_permission(self, request):
+    def has_delete_permission(self, request, obj=None):
         """Only superusers can delete password records."""
         return request.user.is_superuser
     
