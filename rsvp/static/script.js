@@ -79,5 +79,28 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // Setup Intersection Observer for scroll animations (Safari/Firefox support)
+    if ('IntersectionObserver' in window) {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    // Unobserve after animation triggers for better performance
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all photo items and people cards
+        document.querySelectorAll('.photo_item img, .people_card').forEach(element => {
+            observer.observe(element);
+        });
+    }
 });
 

@@ -537,6 +537,13 @@ body h2 .icon {
 	animation: scroll_animation both;
 	animation-timeline: view(10% 5%);
 	animation-range: entry 0% cover 40%;
+	
+	/* Fallback for browsers without scroll-driven animations */
+	animation: scroll_animation 0.6s ease-out both;
+}
+
+.photo_item img.in-view {
+	animation: scroll_animation 0.6s ease-out forwards;
 }
 
 @keyframes scroll_animation {
@@ -588,6 +595,13 @@ body h2 .icon {
 	animation: scroll_animation both;
 	animation-timeline: view(10% 5%);
 	animation-range: entry 0% cover 40%;
+	
+	/* Fallback for browsers without scroll-driven animations */
+	animation: scroll_animation 0.6s ease-out both;
+}
+
+.people_card.in-view {
+	animation: scroll_animation 0.6s ease-out forwards;
 }
 
 .people_card img {
