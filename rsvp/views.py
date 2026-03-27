@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 import logging
 from django_ratelimit.decorators import ratelimit
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -26,11 +27,40 @@ def people(request):
     return render(request, 'people.html')
 
 def photos(request):
-
-    context_dict_photos = {}
-    files = os.listdir(os.path.join(settings.BASE_DIR, "rsvp/static/images/engagement_photos"))
-    context_dict_photos['files'] = files
-
+    """Securely list engagement photos without exposing directory traversal vulnerabilities."""
+    # Allowed image file extensions
+    ALLOWED_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
+    
+    photos_dir = Path(settings.BASE_DIR) / "rsvp" / "static" / "images" / "engagement_photos"
+    
+    # Validate directory exists
+    if not photos_dir.exists() or not photos_dir.is_dir():
+        logger.warning(f"Photos directory not found: {photos_dir}")
+        context_dict_photos = {'files': []}
+        return render(request, 'photos.html', context_dict_photos)
+    
+    try:
+        # List only files (not directories) with allowed extensions
+        secure_files = []
+        for item in photos_dir.iterdir():
+            # Skip directories and hidden files
+            if item.is_file() and not item.name.startswith('.'):
+                # Only include whitelisted image extensions
+                if item.suffix.lower() in ALLOWED_EXTENSIONS:
+                    # Store only the filename, not the full path (prevents path traversal)
+                    secure_files.append(item.name)
+        
+        secure_files.sort()  # Sort alphabetically for consistent display
+        context_dict_photos = {'files': secure_files}
+        logger.debug(f"Loaded {len(secure_files)} photos from engagement_photos directory")
+        
+    except PermissionError:
+        logger.error(f"Permission denied accessing photos directory: {photos_dir}")
+        context_dict_photos = {'files': []}
+    except Exception as e:
+        logger.error(f"Error loading photos: {str(e)}")
+        context_dict_photos = {'files': []}
+    
     return render(request, 'photos.html', context_dict_photos)
 
 # def password_entry(request):
