@@ -1000,6 +1000,23 @@ div.rsvp_mult_family_select_region input:focus {
 	font-weight: bold;
 }
 
+.email_link {
+	text-decoration: underline;
+	padding: 0;
+}
+
+.email_link:hover {
+	font-weight: bold;
+}
+
+.email_link,
+.email_link:visited,
+.email_link:focus,
+.email_link:active {
+	background-color: transparent;
+	color: inherit;
+}
+
 .venue_img {
 	display: block;
 	margin: auto;
