@@ -65,7 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (
                 link.target === "_blank" ||
                 url.startsWith("#") ||
-                url.startsWith("http")
+                url.startsWith("http") ||
+                url.startsWith("mailto:") ||
+                url.startsWith("tel:")
             ) return;
 
             link.addEventListener("click", e => {
