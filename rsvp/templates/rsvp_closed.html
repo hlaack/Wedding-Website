@@ -8,6 +8,10 @@
     <title>RSVP Closed - Harry & Abby</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -16,8 +20,12 @@
             <h1><span class="pre_icon"><a href="index.html">Harry Laack & Abby Langseth</a></span></h1>
         </div>
 
+        {% load static %}
+        <script src="{% static 'script.js' %}"></script>
+
         <div class="rsvp_content">
             <section class="content">
+                <div class="thumbnail"></div>
                 <section class="rsvp_text">
                     <h1>RSVP submissions are now closed</h1>
                     <p class="rsvp_entry_confirmation">The RSVP deadline has passed, so we are no longer accepting new submissions.</p>
