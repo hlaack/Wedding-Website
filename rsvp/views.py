@@ -8,13 +8,32 @@ from django.urls import reverse
 import logging
 from django_ratelimit.decorators import ratelimit
 from pathlib import Path
+from django.utils import timezone
 
 logger = logging.getLogger(__name__)
+
+def rsvp_deadline_has_passed():
+    """Return True once the RSVP submission deadline has passed."""
+    deadline = getattr(settings, 'RSVP_DEADLINE', None)
+    if deadline is None:
+        return False
+    return timezone.localdate() > deadline
+
+
+def redirect_if_rsvp_closed(request):
+    """Redirect users to the closed notice page once RSVP submissions are disabled."""
+    if rsvp_deadline_has_passed():
+        return HttpResponseRedirect(reverse('rsvp_closed'))
+    return None
+
 
 def rsvp_authenticated_required(view_func):
     """Decorator to check if user has entered correct RSVP password"""
     @wraps(view_func)
     def wrapper(request, *args, **kwargs):
+        redirected = redirect_if_rsvp_closed(request)
+        if redirected is not None:
+            return redirected
         if not request.session.get('rsvp_authenticated'):
             return HttpResponseRedirect(reverse('password_entry'))
         return view_func(request, *args, **kwargs)
@@ -76,6 +95,10 @@ from django.contrib import messages
 @ratelimit(key='ip', rate='5/5m', method='POST', block=True)
 def rsvp_password_entry(request):
     """Handle RSVP password entry with rate limiting to prevent brute force attacks."""
+    redirected = redirect_if_rsvp_closed(request)
+    if redirected is not None:
+        return redirected
+
     # If already authenticated, redirect to rsvp page
     if request.session.get('rsvp_authenticated'):
         return HttpResponseRedirect(reverse('rsvp'))
@@ -184,6 +207,10 @@ def rsvp_select(request):
 def rsvp_confirmation(request):
 
     return render(request, 'rsvp_confirmation.html')
+
+
+def rsvp_closed(request):
+    return render(request, 'rsvp_closed.html')
 
 @rsvp_authenticated_required
 def rsvp_family_select(request):

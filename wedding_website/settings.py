@@ -1,6 +1,7 @@
 from pathlib import Path
 import environ
 import os
+from datetime import date, datetime
 
 env = environ.Env(
     DEBUG=(bool, False)
@@ -148,4 +149,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #RECONSTRUCTED ENV IN APPLIKU
 
 RSVP_PASSWORD_HASH = env.str('RSVP_PASSWORD_HASH')
+RSVP_DEADLINE = env('RSVP_DEADLINE', default=date(2026, 6, 30))
 
